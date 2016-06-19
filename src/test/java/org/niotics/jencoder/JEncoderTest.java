@@ -108,10 +108,10 @@ public class JEncoderTest {
 	assertEquals("\'a\' should be equal to jEncoder.getEncodedCharacter(\'a\')", "a",
 		jEncoder.getEncodedCharacter('a'));
 	// character replacement
-	assertEquals("\'©\' should be equal to jEncoder.getEncodedCharacter(\'©\')", "\\u00a9",
-		jEncoder.getEncodedCharacter('©'));
-	assertEquals("\'đ\' should be equal to jEncoder.getEncodedCharacter(\'đ\')", "\\u0111",
-		jEncoder.getEncodedCharacter('đ'));
+	assertEquals("\'\u00a9\' should be equal to jEncoder.getEncodedCharacter(\'\u00a9\')", "\\u00a9",
+		jEncoder.getEncodedCharacter('\u00a9'));
+	assertEquals("\'\u0111\' should be equal to jEncoder.getEncodedCharacter(\'\u0111\')", "\\u0111",
+		jEncoder.getEncodedCharacter('\u0111'));
     }
 
     /**
@@ -122,29 +122,12 @@ public class JEncoderTest {
     @Test
     public void testObfuscateString() {
 	// character replacement
-	assertEquals("\"\\u00df\\u0178\" should be equal to jEncoder.obfuscateString(\"ßŸ\")", "\\u00df\\u0178",
-		jEncoder.obfuscateString("ßŸ"));
+	assertEquals("\"\\u00df\\u0178\" should be equal to jEncoder.obfuscateString(\"\u00df\u0178\")",
+		"\\u00df\\u0178", jEncoder.obfuscateString("\u00df\u0178"));
 	// no character replacement
 	assertEquals("\"test\" should be equal to jEncoder.obfuscateString(\"test\")", "test",
 		jEncoder.obfuscateString("test"));
 	assertEquals("\"\" should be equal to jEncoder.obfuscateString(\"\")", "", jEncoder.obfuscateString(""));
     }
-
-    /**
-     * This method is not yet fully implemented.
-     */
-    /*
-     * @Test public void testObfuscateFile() { try { // create test file
-     * Files.write(Paths.get(inputFilename), "\ufeffáúÏdfg".getBytes(),
-     * StandardOpenOption.CREATE_NEW); // obfuscate test file
-     * jEncoder.obfuscateFile(); // character replacement assertEquals(
-     * "\"\\u00e1\\u00fa\\u00cfdfg\" should be equal to new String(Files.readAllBytes(Paths.get(outputFilename)), StandardCharsets.UTF_8)"
-     * , "\\u00e1\\u00fa\\u00cfdfg", new
-     * String(Files.readAllBytes(Paths.get(outputFilename)),
-     * StandardCharsets.UTF_8)); // delete test files
-     * Files.delete(Paths.get(inputFilename));
-     * Files.delete(Paths.get(outputFilename)); } catch (Exception e) {
-     * e.printStackTrace(); } }
-     */
 
 }
