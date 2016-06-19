@@ -1,0 +1,34 @@
+// coding in java
+apply plugin: 'java'
+// using eclipse
+apply plugin: 'eclipse'
+
+// create custom Jar with all dependencies inside
+task fatJar(type: Jar) {
+	manifest {
+        attributes 'Implementation-Title': 'JEncoder', 'Main-Class': 'org.niotics.jencoder.JEncoder'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+// create custom Jar without any dependency inside (almost the same as assemble)
+task smallJar(type: Jar) {
+	manifest {
+        attributes 'Implementation-Title': 'JEncoder', 'Main-Class': 'org.niotics.jencoder.JEncoder'
+    }
+	with jar
+}
+
+// source of dependencies
+repositories {
+	// central maven repository
+	mavenCentral()
+}
+
+// actual dependencies
+dependencies {
+	// Junit for testing
+	testCompile 'junit:junit:4.12'
+}
