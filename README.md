@@ -2,7 +2,6 @@
 
 ## Badges
 [![Build Status](https://travis-ci.org/rkr8/JEncoder.svg?branch=master)](https://travis-ci.org/rkr8/JEncoder)
-(https://telegram.me/HopperInfo)
 [![codecov](https://codecov.io/gh/rkr8/JEncoder/branch/master/graph/badge.svg)](https://codecov.io/gh/rkr8/JEncoder)
 
 ## About
