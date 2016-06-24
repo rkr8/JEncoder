@@ -68,7 +68,7 @@ public class JEncoder {
     public static void main(String[] args) {
 	if (args.length > 0)
 	    try {
-		new JEncoder(args[0], args[1]).obfuscateFile();
+		new JEncoder(args[0], args[0]).obfuscateFile();
 	    } catch (IOException e) {
 		e.printStackTrace();
 	    }
