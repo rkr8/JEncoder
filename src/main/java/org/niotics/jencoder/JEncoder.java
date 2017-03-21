@@ -73,7 +73,7 @@ public class JEncoder {
 		e.printStackTrace();
 	    }
 	else
-	    System.out.println("Please specify an input and output filename.");
+	    System.out.println("Usage: java -jar JEncoder-0.1.1.jar yourSourceFile.java");
     }
 
 }
