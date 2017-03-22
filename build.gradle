@@ -2,6 +2,8 @@
 apply plugin: 'java'
 // using eclipse
 apply plugin: 'eclipse'
+// using jacoco for code coverage
+apply plugin: 'jacoco'
 
 // create custom Jar with all dependencies inside
 task fatJar(type: Jar) {
@@ -32,3 +34,13 @@ dependencies {
 	// Junit for testing
 	testCompile 'junit:junit:4.12'
 }
+
+// java code coverage
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
+
+check.dependsOn jacocoTestReport
